@@ -96,7 +96,7 @@
             color: #b0b0b0;
         }
 
-        .trending-section {
+        .trending-section, .anime-section {
             margin-top: 60px;
             padding: 40px 20px;
             background-color: #1e1e1e;
@@ -105,30 +105,30 @@
             animation: fadeInUp 1s ease-in-out;
         }
 
-        .trending-section h2 {
+        .trending-section h2, .anime-section h2 {
             color: #e67e22;
             margin-bottom: 30px;
             text-align: center;
             font-size: 28px;
         }
 
-        .trending-item {
+        .trending-item, .anime-item {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
 
-        .trending-item:last-child {
+        .trending-item:last-child, .anime-item:last-child {
             margin-bottom: 0;
         }
 
-        .trending-item-icon {
+        .trending-item-icon, .anime-item-icon {
             font-size: 30px;
             color: #f1c40f;
             margin-right: 15px;
         }
 
-        .trending-item-title {
+        .trending-item-title, .anime-item-title {
             font-weight: 500;
             color: #e0e0e0;
         }
@@ -229,25 +229,37 @@
     <div class="trending-section">
         <h2>Trending Topics</h2>
         <div class="trending-item">
-            <div class="trending-item-icon">🔥</div>
-            <div class="trending-item-title">#BreakingNews</div>
+            <a href="https://timesofindia.indiatimes.com/india/karnataka" target="_blank" class="trending-item-link">
+                <div class="trending-item-icon">🔥</div>
+                <div class="trending-item-title">#BreakingNews</div>
+            </a>
         </div>
         <div class="trending-item">
-            <div class="trending-item-icon">💡</div>
-            <div class="trending-item-title">#TechInnovations</div>
+            <a href="https://www.cnbc.com/2016/04/29/apple-product-innovations-that-changed-the-world.html" target="_blank" class="trending-item-link">
+                <div class="trending-item-icon">💡</div>
+                <div class="trending-item-title">#TechInnovations</div>
+            </a>
         </div>
         <div class="trending-item">
-            <div class="trending-item-icon">🎉</div>
-            <div class="trending-item-title">#FunFriday</div>
+            <a href="https://www.youtube.com/watch?v=7HNO7fi295M" target="_blank" class="trending-item-link">
+                <div class="trending-item-icon">🎉</div>
+                <div class="trending-item-title">#FunFriday</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- New Anime Section -->
+    <div class="anime-section">
+        <h2>Anime</h2>
+        <div class="anime-item">
+            <a href="https://naruto.fandom.com/wiki/Naruto_Uzumaki" target="_blank" class="anime-item-link">
+                <div class="anime-item-icon">🍥</div>
+                <div class="anime-item-title">Naruto Wiki</div>
+            </a>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <p>&copy; 2024.Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-</div>
-
-<!-- Bootstrap JS (Optional) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <p>&copy; 2024 Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</
