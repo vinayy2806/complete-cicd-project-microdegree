@@ -52,7 +52,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh "docker push manojkrishnappa/fullstack:10092024"
+                    sh "docker push manojkrishnappa/fullstack:14092024"
                 }
             }
         }
