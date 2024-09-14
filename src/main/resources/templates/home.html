@@ -10,19 +10,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
         body {
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background: linear-gradient(135deg, #ff6f61, #f9d423);
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: #333333;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
         }
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(34, 34, 34, 0.8);
             padding: 10px 20px;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: fixed;
@@ -32,32 +33,24 @@
         }
 
         .navbar .nav-link, .navbar .navbar-brand {
-            color: #ff9a9e !important;
+            color: #f9d423 !important;
             font-weight: bold;
         }
 
         .navbar .nav-link:hover {
-            color: #333333 !important;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            background-image: url('https://via.placeholder.com/1200x400'); /* Placeholder image URL */
-            background-size: cover;
-            background-position: center;
-            margin-top: 80px; /* Adjusted margin to account for the navbar */
+            color: #ffffff !important;
         }
 
         .container {
             max-width: 1200px;
             padding: 20px;
-            margin-top: 0; /* Removed top margin since it's now managed by hero image */
+            margin-top: 80px;
             margin-bottom: auto;
+            position: relative;
         }
 
         h1 {
-            color: #ff9a9e;
+            color: #f9d423;
             text-align: center;
             margin-bottom: 40px;
             font-size: 36px;
@@ -70,7 +63,7 @@
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #fad0c4;
+            background-color: #ff6f61;
             margin: 10px auto 0;
             border-radius: 2px;
         }
@@ -82,10 +75,10 @@
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.7);
             border: none;
             border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
             transition: transform 0.3s, box-shadow 0.3s;
             animation: fadeIn 1s ease-in-out;
@@ -93,36 +86,29 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 45px rgba(0, 0, 0, 0.4);
-        }
-
-        .card-img-top {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            height: 200px;
-            object-fit: cover;
+            box-shadow: 0 0 45px rgba(0, 0, 0, 0.7);
         }
 
         .card-text {
-            color: #333333;
+            color: #ffffff;
         }
 
         .post-author {
             font-style: italic;
-            color: #666666;
+            color: #bbbbbb;
         }
 
         .trending-section {
             margin-top: 60px;
             padding: 40px 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(34, 34, 34, 0.9);
             border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
             animation: fadeInUp 1s ease-in-out;
         }
 
         .trending-section h2 {
-            color: #ff9a9e;
+            color: #ff6f61;
             margin-bottom: 30px;
             text-align: center;
             font-size: 28px;
@@ -140,32 +126,53 @@
 
         .trending-item-icon {
             font-size: 30px;
-            color: #ff9a9e;
+            color: #f9d423;
             margin-right: 15px;
         }
 
         .trending-item-title {
             font-weight: bold;
-            color: #333333;
+            color: #ffffff;
         }
 
         .footer {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(34, 34, 34, 0.8);
             padding: 10px;
             text-align: center;
-            color: #666666;
+            color: #bbbbbb;
             margin-top: auto;
             animation: fadeInUp 1s ease-in-out;
             width: 100%;
         }
 
         .footer a {
-            color: #ff9a9e;
+            color: #f9d423;
             text-decoration: none;
         }
 
         .footer a:hover {
-            color: #333333;
+            color: #ffffff;
+        }
+
+        /* Floating Images */
+        .floating-images {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+
+        .floating-images img {
+            width: 150px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .floating-images img:hover {
+            transform: scale(1.1);
         }
 
         @keyframes fadeInDown {
@@ -224,9 +231,6 @@
     </div>
 </nav>
 
-<!-- Hero Image -->
-<div class="hero-image"></div>
-
 <div class="container">
     <h1>Daily Posts</h1>
 
@@ -237,7 +241,6 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12" th:each="post : ${posts}">
             <div class="card">
-                <img src="https://via.placeholder.com/600x200" class="card-img-top" alt="Post image"> <!-- Placeholder image URL -->
                 <div class="card-body">
                     <p class="card-text" th:text="${post.content}"></p>
                     <p class="post-author">Posted by: <span th:text="${post.user.username}"></span></p>
@@ -261,7 +264,7 @@
             <div class="trending-item-title">#FunFriday</div>
         </div>
     </div>
-</div>
 
-<div class="footer">
-    <p>&copy; 2024 Microdegree. All rights reserved. | <a href="#">Privacy Policy</
+    <!-- Floating Images -->
+    <div class="floating-images">
+        <img src="https://imgs.search.brave.com/-QstjTNZZo5CtpVFgB5_cGqLjJLL0BMarIxX89kIG2c/rs:fit:500:0:0:0/g:
