@@ -28,14 +28,14 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    sh "docker build -t manojkrishnappa/fullstack:10092024 ."
+                    sh "docker build -t manojkrishnappa/fullstack:14092024 ."
                 }
             }
         }
 
         stage('Docker Image Scan') {
             steps {
-                sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:10092024"
+                sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:14092024"
             }
         }
 
@@ -59,16 +59,16 @@ pipeline {
 
         stage('Deploy To Kubernetes') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://4ffa54bb1931f674398d2675f0357b16.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://2df4379b4ff7e505033f6019afe6113d.yl4.us-east-1.eks.amazonaws.com/') {
                     sh "aws eks update-kubeconfig --region us-east-1 --name microdegree-cluster"
-                    sh "kubectl apply -f deployment-service.yaml -n microdegree"
+                    sh "kubectl apply -f deployment.yaml -n microdegree"
                 }
             }
         }
 
         stage('Verify the Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://4ffa54bb1931f674398d2675f0357b16.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://2df4379b4ff7e505033f6019afe6113d.yl4.us-east-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n microdegree"
                     sh "kubectl get svc -n microdegree"
                 }
