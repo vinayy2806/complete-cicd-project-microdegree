@@ -29,7 +29,7 @@
             top: 0;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             z-index: 1000;
         }
 
@@ -37,6 +37,7 @@
             color: #ffffff;
             font-size: 24px;
             margin: 0;
+            margin-right: auto;
         }
 
         .navbar .links {
@@ -238,11 +239,14 @@
 
         <h2>Login</h2>
         <form th:action="@{/login}" method="post" role="form" th:object="${user}">
+
             <label for="username">Username:</label>
-            <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter your Username" required>
+            <input th:field="*{username}" type="text" id="username" name="username"
+                placeholder="Enter your Username" required>
 
             <label for="password">Password:</label>
-            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your Password" required>
+            <input th:field="*{password}" type="password" id="password" name="password"
+                placeholder="Enter your Password" required>
 
             <button type="submit">Login</button>
         </form>
@@ -250,7 +254,7 @@
     </div>
 
     <div class="footer">
-        <p>&copy; 2024.Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>&copy; 2024 DevOps Shack. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </div>
 </body>
 
