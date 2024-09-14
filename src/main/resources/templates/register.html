@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,8 +15,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #6e45e2, #88d3ce);
-            color: #ffffff;
+            background: linear-gradient(135deg, #121212, #1e1e1e);
+            color: #e0e0e0;
             overflow-x: hidden;
         }
 
@@ -25,20 +24,19 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(34, 34, 34, 0.8);
-            padding: 10px 20px;
+            background-color: #1f1f1f;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .navbar h1 {
-            color: #ffffff;
+            color: #f1c40f;
             font-size: 24px;
             margin: 0;
-            margin-right: auto;
         }
 
         .navbar .links {
@@ -47,9 +45,9 @@
         }
 
         .navbar a {
-            color: #88d3ce;
+            color: #f1c40f;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -58,19 +56,18 @@
         }
 
         .form-container {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #2a2a2a;
             width: 400px;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1s ease-in-out;
-            transform: translateY(0);
             margin-top: 80px;
             margin-bottom: auto;
         }
 
         h2 {
-            color: #88d3ce;
+            color: #f1c40f;
             text-align: center;
             margin-bottom: 30px;
             font-size: 28px;
@@ -82,7 +79,7 @@
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #6e45e2;
+            background-color: #e67e22;
             margin: 10px auto 0;
             border-radius: 2px;
         }
@@ -91,7 +88,7 @@
             display: block;
             margin-bottom: 10px;
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         input {
@@ -100,7 +97,7 @@
             margin-bottom: 20px;
             border: none;
             border-radius: 5px;
-            background-color: #444;
+            background-color: #333;
             color: #ffffff;
             box-sizing: border-box;
             font-size: 14px;
@@ -108,7 +105,7 @@
         }
 
         input:focus {
-            background-color: #555;
+            background-color: #444;
             outline: none;
             transform: translateY(-2px);
         }
@@ -120,7 +117,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 500;
             width: 100%;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
@@ -134,13 +131,13 @@
         .form-footer {
             text-align: center;
             margin-top: 30px;
-            color: #ccc;
+            color: #b0b0b0;
         }
 
         .form-footer a {
-            color: #88d3ce;
+            color: #f1c40f;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -150,7 +147,7 @@
         }
 
         .success-message {
-            background-color: rgba(0, 128, 0, 0.7);
+            background-color: #2ecc71;
             color: #ffffff;
             padding: 10px;
             border-radius: 3px;
@@ -160,25 +157,27 @@
         }
 
         .error-message {
-            color: #ff4c4c;
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 3px;
             text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
+            margin-bottom: 20px;
             animation: shake 0.5s;
         }
 
         .footer {
-            background-color: rgba(34, 34, 34, 0.8);
-            padding: 10px;
+            background-color: #1f1f1f;
+            padding: 15px;
             text-align: center;
-            color: #bbbbbb;
+            color: #b0b0b0;
             margin-top: auto;
             animation: fadeInUp 1s ease-in-out;
             width: 100%;
         }
 
         .footer a {
-            color: #88d3ce;
+            color: #f1c40f;
             text-decoration: none;
         }
 
@@ -222,14 +221,13 @@
         }
     </style>
 </head>
-
 <body>
     <div class="navbar">
-        <h1>DevOps Shack</h1>
+        <h1>Microdegree</h1>
         <div class="links">
-            <a href="https://www.youtube.com/@devopsshack/videos" target="_blank">YouTube</a>
-            <a href="https://www.instagram.com/devopsshack/" target="_blank">Instagram</a>
-            <a href="https://www.devopsshack.com/" target="_blank">Courses</a>
+            <a href="https://www.youtube.com/@microdegree/videos" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/microdegree.work/" target="_blank">Instagram</a>
+            <a href="https://www.microdegree.work/" target="_blank">Courses</a>
         </div>
     </div>
 
@@ -263,8 +261,7 @@
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 DevOps Shack. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>&copy; 2024.Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </div>
 </body>
-
 </html>
