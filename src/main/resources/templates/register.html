@@ -38,6 +38,7 @@
             color: #ffffff;
             font-size: 24px;
             margin: 0;
+            margin-right: auto;
         }
 
         .navbar .links {
@@ -63,6 +64,7 @@
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1s ease-in-out;
+            transform: translateY(0);
             margin-top: 80px;
             margin-bottom: auto;
         }
@@ -158,12 +160,10 @@
         }
 
         .error-message {
-            background-color: rgba(255, 0, 0, 0.7);
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 3px;
+            color: #ff4c4c;
             text-align: center;
-            margin-bottom: 20px;
+            margin-top: 10px;
+            font-weight: bold;
             animation: shake 0.5s;
         }
 
@@ -243,10 +243,12 @@
         <h2>Registration</h2>
         <form th:action="@{/register}" method="post" role="form" th:object="${user}">
             <label for="username">Username:</label>
-            <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter your Username" required>
+            <input th:field="*{username}" type="text" id="username" name="username"
+                placeholder="Enter your Username" required>
 
             <label for="password">Password:</label>
-            <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter your Password" required>
+            <input th:field="*{password}" type="password" id="password" name="password"
+                placeholder="Enter your Password" required>
 
             <button type="submit">Register</button>
         </form>
@@ -256,12 +258,12 @@
         </div>
 
         <div class="form-footer">
-            Already have an account? <a th:href="@{/login}">Login</a> here.
+            Already have an account? <a th:href="@{/login1}">Login</a> here.
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>&copy; 2024 DevOps Shack. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </div>
 </body>
 
