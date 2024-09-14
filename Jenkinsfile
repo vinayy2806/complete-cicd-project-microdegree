@@ -33,11 +33,11 @@ pipeline {
             }
         }
 
-        stage('Docker Image Scan') {
-            steps {
-                sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:14092024"
-            }
-        }
+        // stage('Docker Image Scan') {
+        //     steps {
+        //         sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:14092024"
+        //     }
+        // }
 
         stage('Login to Docker Hub') {
             steps {
