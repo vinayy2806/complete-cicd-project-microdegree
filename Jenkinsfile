@@ -28,16 +28,16 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    sh "docker build -t manojkrishnappa/fullstack:14092024 ."
+                    sh "docker build -t manojkrishnappa/fullstack:20241003 ."
                 }
             }
         }
 
-        // stage('Docker Image Scan') {
-        //     steps {
-        //         sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:14092024"
-        //     }
-        // }
+        stage('Docker Image Scan') {
+            steps {
+                sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20241003"
+            }
+        }
 
         stage('Login to Docker Hub') {
             steps {
@@ -52,14 +52,14 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    sh "docker push manojkrishnappa/fullstack:14092024"
+                    sh "docker push manojkrishnappa/fullstack:20241003"
                 }
             }
         }
 
         stage('Deploy To Kubernetes') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://48c9dc3067d4649a01b80f0a8d56774f.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://4AB4BE52402C9FB1670ECBA301DDE4C2.gr7.us-east-1.eks.amazonaws.com') {
                     sh "aws eks update-kubeconfig --region us-east-1 --name microdegree-cluster"
                     sh "kubectl apply -f deployment.yml -n microdegree --validate=false"
                 }
@@ -68,7 +68,7 @@ pipeline {
 
         stage('Verify the Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://48c9dc3067d4649a01b80f0a8d56774f.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://4AB4BE52402C9FB1670ECBA301DDE4C2.gr7.us-east-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n microdegree"
                     sh "kubectl get svc -n microdegree"
                 }
@@ -76,3 +76,4 @@ pipeline {
         }
     }
 }
+
