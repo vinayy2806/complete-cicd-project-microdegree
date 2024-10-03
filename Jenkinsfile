@@ -61,7 +61,8 @@ pipeline {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://4AB4BE52402C9FB1670ECBA301DDE4C2.gr7.us-east-1.eks.amazonaws.com') {
                     sh "aws eks update-kubeconfig --region us-east-1 --name microdegree-cluster"
-                    sh "kubectl apply -f deployment.yml -n microdegree --validate=false"
+                    sh "kubectl get pods -n microdegree"
+                    sh "kubectl apply -f deployment.yml -n microdegree"
                 }
             }
         }
