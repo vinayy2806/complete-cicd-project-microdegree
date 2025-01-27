@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_TAG = "20241003"
+        DOCKER_TAG = "20250127"
         IMAGE_NAME = "manojkrishnappa/fullstack"
         AWS_REGION = "us-east-1"
         CLUSTER_NAME = "microdegree-cluster"
@@ -43,7 +43,7 @@ pipeline {
         stage('Docker Image Scan') {
             steps {
                 script {
-                    sh "trivy image --format table -o trivy-image-report.html ${IMAGE_NAME}:${DOCKER_TAG}"
+                    sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20250127"
                 }
             }
         }
