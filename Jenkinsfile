@@ -43,7 +43,7 @@ pipeline {
         stage('Docker Image Scan') {
             steps {
                 script {
-                    sh "trivy image --format table -o trivy-image-report.html ${IMAGE_NAME}:${DOCKER_TAG}"
+                    sh "trivy image --format table -o trivy-image-report.html vinayy2003/fullstack:20250127"
                 }
             }
         }
@@ -118,7 +118,7 @@ pipeline {
                 emailext (
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
-                    to: 'aa5218321@gmail.com',
+                    to: 'vinayhuligadde@gmail.com',
                     from: 'vinay28623@gmail.com',
                     replyTo: 'vinay28623@gmail.com',
                     mimeType: 'text/html',
