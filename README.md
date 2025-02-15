@@ -1,1 +1,0 @@
-# complete-cicd-project-microdegree
