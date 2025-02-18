@@ -108,10 +108,10 @@ resource "aws_eks_node_group" "microdegree" {
     min_size     = 3
   }
 
-  instance_types = ["t2.mediam"]
+  instance_types = ["t2.medium"]
 
   remote_access {
-    ec2_ssh_key = var.ssh_key_name
+    ec2_ssh_key = "project"
     source_security_group_ids = [aws_security_group.microdegree_node_sg.id]
   }
 }
